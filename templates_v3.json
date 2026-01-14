@@ -4,8 +4,8 @@
     {
       "id": 1,
       "type": 1,
-      "title": "Calibre Web",
-      "name": "calibreweb",
+      "title": "Microsoft BC Sandbox",
+      "name": "BC_Sandbox",
       "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/calibre-web/config<br>mkdir -p /volume1/docker/calibre-web/books</p>",
       "description": "[Calibre-web](https://github.com/janeczku/calibre-web) is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself. This software is a fork of library and licensed under the GPL v3 License.",
       "categories": [
@@ -13,50 +13,88 @@
       ],
       "platform": "windows",
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
-      "image": "linuxserver/calibre-web:latest",
+      "image": "mcr.microsoft.com/businesscentral:ltsc2022",
       "env": [
         {
-          "name": "PUID",
-          "label": "PUID",
-          "default": "15000",
-          "description": "for UserID"
+          "name": "username",
+          "label": "username",
+          "default": "admin",
+          "description": "Container Username"
         },
         {
-          "name": "PGID",
-          "label": "PGID",
-          "default": "15000",
-          "description": "for GroupID"
+          "name": "artifactUrl",
+          "label": "Artifact Url",
+          "default": "https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/27.2.42879.44461/w1",
+          "description": "Artifact Url"
         },
         {
-          "name": "TZ",
-          "label": "TZ",
-          "default": "America/Los_Angeles",
-          "description": "Specify a timezone to use for example Europe/Amsterdam"
+          "name": "licenseFile",
+          "default": "",
+          "preset": true
         },
         {
-          "name": "DOCKER_MODS",
-          "label": "DOCKER_MODS",
-          "default": "linuxserver/mods:universal-calibre",
-          "description": "#optional & **x86-64 only** Adds the ability to perform ebook conversion"
+          "name": "locale",
+          "default": "en-US",
+          "preset": true
         },
         {
-          "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
-          "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
-          "default": "1",
-          "description": "Optionally set this to allow Google OAUTH to work"
+          "name": "databaseServer",
+          "default": "",
+          "preset": true
+        },
+        {
+          "name": "securePassword",
+          "default": "76492d1116743f0423413b16050a5345MgB8AFEAMQBTAGkANgBJAFkARABNAGQAMQB0AE8AQgBGAE0ATABUAEcAdABlAEEAPQA9AHwAMAA1AGUAYQAyAGIAMQA1ADAAMABmADgANABkADgAMAA5ADMANQBhADgANgBkAGQANQAyAGMAZgAyADkAOAAxAGQAOAA3ADIAZAA5ADcANAAwADQAMQAwADYAZAAxAGMAOQAxAGYAZQA4ADQANABmADEAMgA2ADQANgBmADMAMAA=",
+          "preset": true
+        },
+        {
+          "name": "passwordKeyFile",
+          "default": "c:\\run\\my\\aes.key",
+          "preset": true
+        },
+        {
+          "name": "useSSL",
+          "default": "Y",
+          "preset": true
+        },
+        {
+          "name": "accept_eula",
+          "default": "Y",
+          "preset": true
+        },
+        {
+          "name": "accept_outdated",
+          "default": "Y",
+          "preset": true
+        },
+        {
+          "name": "auth",
+          "default": "NavUserPassword",
+          "preset": true
         }
       ],
       "ports": [
-        "8083/tcp"
+        "1433/tcp",
+        "1433/tcp",
+        "443/tcp",
+        "5986/tcp",
+        "7045/tcp",
+        "7046/tcp",
+        "7047/tcp",
+        "7048/tcp",
+        "7049/tcp",
+        "7083/tcp",
+        "80/tcp",
+        "8080/tcp"
       ],
       "volumes": [
         {
-          "container": "/config",
-          "bind": "/opt/mediadepot/apps/calibre-web/config"
+          "container": "c:\\run\\my",
+          "bind": "c:\\programdata\\bccontainerhelper\\extensions\\bcdev\\my"
         },
         {
-          "container": "/books",
-          "bind": "/media/storage/ebooks"
+          "container": "c:\\dl",
+          "bind": "c:\\bcartifacts.cache"
         }
       ],
       "restart_policy": "unless-stopped",
@@ -78,7 +116,7 @@
           "value": "mydnschallenge"
         }
       ],
-      "maintainer": " https://github.com/mediadepot/templates/"
+      "maintainer": "https://github.com/cvale/portainer-bc-templates"
     }
   ]
 }
