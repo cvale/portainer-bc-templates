@@ -48,11 +48,6 @@
           "preset": true
         },
         {
-          "name": "passwordKeyFile",
-          "default": "c:\\run\\my\\aes.key",
-          "preset": true
-        },
-        {
           "name": "useSSL",
           "default": "Y",
           "preset": true
