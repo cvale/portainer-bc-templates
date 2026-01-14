@@ -89,10 +89,6 @@
       ],
       "volumes": [
         {
-          "container": "c:\\run\\my",
-          "bind": "d:\\ContainerMounts\\bccontainerhelper\\extensions\\bcdev\\my"
-        },
-        {
           "container": "c:\\dl",
           "bind": "d:\\ContainerMounts\\bcartifacts.cache"
         }
