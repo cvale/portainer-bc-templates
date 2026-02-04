@@ -85,46 +85,6 @@
         {
           "name": "traefik.http.routers.devcontainers.service",
           "value": "devcontainers@docker"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.rule",
-          "value": "HostRegexp(`^.+\\.devcontainers\\.services\\.haal\\.ba$`)"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.entrypoints",
-          "value": "web, websecure"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.tls.certresolver",
-          "value": "myresolver"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.observability.metrics",
-          "value": "true"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.observability.accessLogs",
-          "value": "true"
-        },
-        {
-          "name": "traefik.http.routers.devcontainers.observability.tracing",
-          "value": "true"
-        },
-        {
-          "name": "traefik.http.services.devcontainers-http.loadBalancer.server.scheme",
-          "value": "http"
-        },
-        {
-          "name": "traefik.http.services.devcontainers-http.loadBalancer.server.port",
-          "value": "80"
-        },
-        {
-          "name": "traefik.http.services.devcontainers-devService.loadBalancer.server.scheme",
-          "value": "http"
-        },
-        {
-          "name": "traefik.http.services.devcontainers-devService.loadBalancer.server.port",
-          "value": "7049"
         }
       ],
       "maintainer": "https://github.com/cvale/portainer-bc-templates"
