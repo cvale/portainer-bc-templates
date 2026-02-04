@@ -68,20 +68,6 @@
           "preset": true
         }
       ],
-      "ports": [
-        "1433/tcp",
-        "1433/tcp",
-        "443/tcp",
-        "5986/tcp",
-        "7045/tcp",
-        "7046/tcp",
-        "7047/tcp",
-        "7048/tcp",
-        "7049/tcp",
-        "7083/tcp",
-        "80/tcp",
-        "8080/tcp"
-      ],
       "volumes": [
         {
           "container": "c:\\dl",
@@ -100,7 +86,7 @@
         },
         {
           "name": "traefik.http.routers.devcontainers.rule",
-          "value": "HostRegexp(`^.+\.devcontainers\.services\.haal\.ba$`)"
+          "value": "HostRegexp(`^.+\\.devcontainers\\.services\\.haal\\.ba$`)"
         },
         {
           "name": "traefik.http.routers.devcontainers.entrypoints",
