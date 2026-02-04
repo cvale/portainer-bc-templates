@@ -14,6 +14,8 @@
       "platform": "windows",
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
       "image": "mcr.microsoft.com/businesscentral:ltsc2022",
+      "ports": [
+      ],
       "env": [
         {
           "name": "username",
