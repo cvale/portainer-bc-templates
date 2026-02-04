@@ -129,7 +129,7 @@
         {
           "name": "traefik.http.services.devcontainers-http.loadBalancer.server.port",
           "value": "80"
-        }
+        },
         {
           "name": "traefik.http.services.devcontainers-devService.loadBalancer.server.scheme",
           "value": "http"
