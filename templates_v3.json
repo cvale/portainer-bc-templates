@@ -16,6 +16,10 @@
       "image": "mcr.microsoft.com/businesscentral:ltsc2022",
       "ports": [
       ],
+      "labels": [      
+        { "name": "traefik.enable", "value": "true" },
+        { "name": "traefik.http.routers.devcontainers.service", "value": "devcontainers@docker"}
+      ],      
       "env": [
         {
           "name": "username",
@@ -77,10 +81,6 @@
         }
       ],
       "restart_policy": "unless-stopped",
-      "labels": [      
-        { "name": "traefik.enable", "value": "true" },
-        { "name": "traefik.http.routers.devcontainers.service", "value": "devcontainers@docker"}
-      ],
       "maintainer": "https://github.com/cvale/portainer-bc-templates"
     }
   ]
