@@ -17,8 +17,7 @@
       "ports": [
       ],
       "labels": [      
-        { "name": "traefik.enable", "value": "true" },
-        { "name": "traefik.http.routers.devcontainers.service", "value": "devcontainers@docker"}
+        { "name": "traefik.enable", "value": "true" }
       ],      
       "env": [
         {
